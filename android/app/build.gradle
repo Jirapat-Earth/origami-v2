@@ -1,0 +1,47 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.origami_v2"
+    compileSdk = 35
+    ndkVersion = "25.2.9519653"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.example.origami_v2"
+        minSdk = 28
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+        release {
+            // Enables code shrinking, obfuscation, and optimization.
+            minifyEnabled true
+            // Enables resource shrinking, which is performed by the Android Gradle plugin.
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
