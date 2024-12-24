@@ -108,6 +108,7 @@ flutter:
     - assets/images/stamp/stamp_button_disable.png
     - assets/images/stamp/stamp_button_in.png
     - assets/images/stamp/stamp_button_out.png
+    - assets/images/stamp/location-icon.png
     - assets/images/busienss1.jpg
     - assets/images/certificate_1.png
     - assets/images/ic_calen.png

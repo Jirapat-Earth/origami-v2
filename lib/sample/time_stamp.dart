@@ -8,7 +8,10 @@ import 'dart:math' show cos, sqrt, asin;
 import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permissionHandler;
+import 'dart:ui' as ui;
+import 'package:image/image.dart' as img;
 
+String onTimeSample = '';
 class TimeSample extends StatefulWidget {
   const TimeSample(
       {super.key,
@@ -16,12 +19,13 @@ class TimeSample extends StatefulWidget {
       this.timeStamp,
       required this.Authorization,
       required this.descriptionTime,
-      required this.fetchBranchCallback});
+      required this.fetchBranchCallback,});
   final Employee employee;
   final GetTimeStampSim? timeStamp;
   final String Authorization;
   final String descriptionTime;
   final Future<void> Function() fetchBranchCallback;
+
   @override
   _TimeSampleState createState() => _TimeSampleState();
 }
@@ -45,6 +49,21 @@ class _TimeSampleState extends State<TimeSample> {
     _CheckPlatform();
     _location = Location();
     requestLocationPermission();
+    _addInTime = widget.timeStamp?.stamp_in ?? '';
+    _addOutTime = widget.timeStamp?.stamp_out ?? '';
+  }
+
+  Set<Marker> _markers = {};
+  Future<void> _createCustomMarker() async {
+    setState(() {
+      _markers.add(
+        Marker(
+          markerId: MarkerId('target_marker'),
+          position: LatLng(double.parse(widget.timeStamp?.branch_lat ?? ''), double.parse(widget.timeStamp?.branch_lng ?? '')),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+        ),
+      );
+    });
   }
 
   void requestLocationPermission() async {
@@ -83,8 +102,12 @@ class _TimeSampleState extends State<TimeSample> {
             ? _checkInOut = false
             : _checkInOut = true;
       });
-      _addInTime = widget.timeStamp?.stamp_in ?? '';
-      _addOutTime = widget.timeStamp?.stamp_out ?? '';
+      _createCustomMarker();
+      if (onTimeSample == 'on'){
+        _addInTime = widget.timeStamp?.stamp_in ?? '';
+        _addOutTime = widget.timeStamp?.stamp_out ?? '';
+        onTimeSample = 'off';
+      }
       if (_addInTime == '' && _addOutTime == '') {
         stamp_type = '';
       } else if (_addInTime != '' && _addOutTime == '') {
@@ -230,6 +253,8 @@ class _TimeSampleState extends State<TimeSample> {
                   target: _circleCenter, // เครื่องหมายจุลภาคตรงนี้
                   zoom: 18,
                 ),
+                markers: _markers,
+                // mapType: MapType.normal,
                 onMapCreated: (GoogleMapController controller) {
                   _mapController = controller;
                 },
@@ -265,24 +290,32 @@ class _TimeSampleState extends State<TimeSample> {
     return Row(
       children: [
         Expanded(child: SizedBox()),
+        if(_addInTime == '')
         Center(
           child: GestureDetector(
             onTap: () => _pickImage(ImageSource.camera),
-            child: const CircleAvatar(
+            child: CircleAvatar(
                 radius: 50,
-                backgroundImage:
-                    AssetImage('assets/images/stamp/stamp_button_in.png')),
+                child: Image.asset('assets/images/stamp/stamp_button_in.png')),
           ),
         ),
+        if(_addInTime == '')
         Expanded(flex:2,child: SizedBox()),
+        if(_addOutTime == '')
         Center(
           child: GestureDetector(
             onTap: () => _pickImage(ImageSource.camera),
-            child: const CircleAvatar(
+            child: CircleAvatar(
                 radius: 50,
-                backgroundImage:
-                    AssetImage('assets/images/stamp/stamp_button_out.png')),
+                child: Image.asset('assets/images/stamp/stamp_button_out.png')),
           ),
+        )
+        else
+        GestureDetector(
+          child: const CircleAvatar(
+              radius: 50,
+              backgroundImage:
+              AssetImage('assets/images/stamp/stamp_button_disable.png')),
         ),
         Expanded(child: SizedBox()),
       ],
@@ -359,8 +392,8 @@ class _TimeSampleState extends State<TimeSample> {
         });
         // เรียก callback จาก widget
         await widget.fetchBranchCallback();
-        _showDialog();
-        _fetchStamp();
+
+        _fetchStamp2();
       }
     } catch (e) {
       print('Error picking image: $e');
@@ -406,11 +439,18 @@ class _TimeSampleState extends State<TimeSample> {
 
   String stamp_type = 'out';
   Future<void> _fetchStamp2() async {
+    if(_addInTime != ''){
+      stamp_type = "in";
+    }else if(_addOutTime != ''){
+      stamp_type = "out";
+    }
     print('${stamp_type}');
+    print('${widget.timeStamp?.branch_id}');
     print('${latitude}');
     print('${longitude}');
     print('${_checkPlatform}');
     print('${_base64Image}');
+    _fetchStamp();
   }
 
   String check_Stamp_In = '';
@@ -426,7 +466,6 @@ class _TimeSampleState extends State<TimeSample> {
         body: {
           'comp_id': widget.employee.comp_id,
           'emp_id': widget.employee.emp_id,
-          'Authorization': widget.Authorization,
           'stamp_type': stamp_type, //in,out
           'activity_id': '',
           'branch_id': widget.timeStamp?.branch_id ?? '',
@@ -438,6 +477,7 @@ class _TimeSampleState extends State<TimeSample> {
       );
       if (response.statusCode == 200) {
         final Map<String, dynamic> jsonResponse = json.decode(response.body);
+        _showDialog();
         setState(() {
           check_Stamp_In = jsonResponse['stamp_in'];
           check_Stamp_Out = jsonResponse['stamp_out'];

@@ -702,7 +702,7 @@ class _OrigamiPageState extends State<OrigamiPage> {
       backgroundColor: Colors.transparent,
       context: context,
       isScrollControlled: true,
-      isDismissible: true,
+      isDismissible: false,
       enableDrag: false,
       builder: (BuildContext context) {
         return _getBranch();
@@ -711,6 +711,7 @@ class _OrigamiPageState extends State<OrigamiPage> {
   }
 
   int index_branch = 0;
+
   Widget _getBranch() {
     return FutureBuilder<List<GetTimeStampSim>>(
       future: fetchBranch(),
@@ -788,6 +789,7 @@ class _OrigamiPageState extends State<OrigamiPage> {
                                 onTap: () {
                                   setState(() {
                                     timeStampObject = snapshot.data?[index];
+                                    onTimeSample = 'on';
                                   });
                                   Navigator.pop(context);
                                 },
