@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
+import '../../language/translate.dart';
+import '../../login/origami_login.dart';
+import '../../origami.dart';
 import '../widget_mini/mini_account.dart';
 import '../widget_mini/mini_asset.dart';
 import '../widget_mini/mini_contact.dart';
@@ -13,6 +15,19 @@ import '../widget_mini/mini_unit.dart';
 import '../widget_other/dropdown_need.dart';
 import 'need.dart';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 
 class NeedDetail extends StatefulWidget {
   const NeedDetail({

@@ -1,6 +1,15 @@
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
+import '../../../login/origami_login.dart';
 import '../../academy.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'dart:async';
 
 class Instructors extends StatefulWidget {
   Instructors({super.key, required this.employee, required this.academy, required this.Authorization, });

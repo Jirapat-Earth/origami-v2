@@ -1,12 +1,22 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import '../../../IDOC/idoc_view.dart';
+import '../../../language/translate.dart';
+import '../../../login/origami_login.dart';
+import '../../../main.dart';
 import '../../update_project/project_other_view/project_budgeting.dart';
 import '../../update_project/project_other_view/project_manday.dart';
 import '../../update_project/project_other_view/project_need.dart';
 import '../../update_project/project_other_view/project_photo_files.dart';
-import '../../../imports.dart';
 import 'edit_project_Issue/project_Issue_log.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'dart:async';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 
 class ProjectOther extends StatefulWidget {
   const ProjectOther({

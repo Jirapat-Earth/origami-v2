@@ -1,6 +1,39 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import '../../../../imports.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'package:awesome_bottom_bar/widgets/inspired/inspired.dart';
+import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:video_player/video_player.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
+import 'package:signature/signature.dart';
+import 'package:intl/date_symbol_data_local.dart'; // โหลดข้อมูล locale สำหรับการแสดงวันที่
+import 'package:syncfusion_flutter_calendar/calendar.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'package:flutter_switch/flutter_switch.dart';
+import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:open_file/open_file.dart';
+import 'package:file_picker/file_picker.dart'; // สำหรับเลือกไฟล์
+import 'package:xml/xml.dart'; // สำหรับอ่าน XML
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+
+
+
 
 class EditProjectIssue extends StatefulWidget {
   const EditProjectIssue({

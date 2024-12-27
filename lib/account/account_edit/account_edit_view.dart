@@ -5,10 +5,19 @@ import '../../IDOC/idoc_view.dart';
 import '../../activity/activity.dart';
 import '../../activity/add/activity_add.dart';
 import '../../contact/contact.dart';
-import '../../imports.dart';
+import '../../login/origami_login.dart';
 import '../../project/project.dart';
 import 'detail/account_edit_detail.dart';
 import 'location/account_edit_location.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 
 class AccountEditView extends StatefulWidget {
   const AccountEditView({

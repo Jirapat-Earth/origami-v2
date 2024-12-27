@@ -1,8 +1,14 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:origami_v2/project/project.dart';
-import '../../../imports.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:file_picker/file_picker.dart'; // สำหรับเลือกไฟล์
 
 class ProjectPhotoFile extends StatefulWidget {
   const ProjectPhotoFile({

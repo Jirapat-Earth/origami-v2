@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' show parse;
-import '../../imports.dart';
+import '../../login/origami_login.dart';
 import '../academy.dart';
 import 'announcements/announcements.dart';
 import 'attach_file/attach_file.dart';
@@ -9,6 +9,13 @@ import 'curriculum/curriculum.dart';
 import 'description/description.dart';
 import 'discussion/discussion.dart';
 import 'instructors/instructors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'dart:async';
 
 class EvaluateModule extends StatefulWidget {
   EvaluateModule({

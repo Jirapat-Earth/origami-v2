@@ -5,14 +5,18 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:origami_v2/project/update_project/project_edit.dart';
 import 'package:origami_v2/project/update_project/project_other_view/project_other_view.dart';
-import '../../../imports.dart';
 import '../../activity/activity.dart';
-import '../../activity/edit/activity_edit_now.dart';
 import '../../activity/skoop/skoop.dart';
+import '../../calendar/calendar.dart';
+import '../../language/translate.dart';
+import '../../login/origami_login.dart';
 import '../project.dart';
 import 'join_user/join_user.dart';
-import 'project_activity.dart';
-import 'project_skoop.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'dart:async';
 
 class ProjectListUpdate extends StatefulWidget {
   const ProjectListUpdate({

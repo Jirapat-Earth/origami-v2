@@ -2,10 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
 import 'chat_ui/chat_ui.dart';
 import 'chat_ui/chat_ui_basic.dart';
 import 'help_description.dart';
+import '../login/origami_login.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class HelpDesk extends StatefulWidget {
   const HelpDesk({

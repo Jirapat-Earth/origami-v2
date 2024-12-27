@@ -1,6 +1,11 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
+import 'package:signature/signature.dart';
 
 class SignaturePage extends StatefulWidget {
   const SignaturePage({super.key, required this.signatureImage});

@@ -1,10 +1,16 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
 import '../../activity/activity.dart';
+import '../../login/origami_login.dart';
 import '../../project/project.dart';
 import 'contact_edit_detail.dart';
 import 'contact_edit_information.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 
 class ContactEditView extends StatefulWidget {
   const ContactEditView({

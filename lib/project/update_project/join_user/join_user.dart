@@ -1,10 +1,17 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import '../../../Contact/contact_edit/contact_edit_detail.dart';
-import '../../../imports.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-
+import '../../../language/translate.dart';
+import '../../../login/origami_login.dart';
 import '../../project.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class JoinUser extends StatefulWidget {
   JoinUser({

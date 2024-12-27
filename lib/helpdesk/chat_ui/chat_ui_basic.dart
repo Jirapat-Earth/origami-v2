@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:intl/intl.dart';
-import '../../imports.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChatUiBasic extends StatefulWidget {
   @override

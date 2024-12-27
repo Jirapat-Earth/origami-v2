@@ -1,8 +1,13 @@
-import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
-import '../../../imports.dart';
+import '../../login/origami_login.dart';
 import 'contact_add_detail.dart';
 import 'contact_add_information.dart';
+import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 
 class ContactAddView extends StatefulWidget {
   const ContactAddView({

@@ -1,6 +1,8 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
+import '../../language/translate.dart';
+import '../../login/origami_login.dart';
+import '../../origami.dart';
 import '../widget_mini/mini_department.dart';
 import '../widget_mini/mini_employee.dart';
 import '../widget_mini/mini_project.dart';
@@ -10,6 +12,13 @@ import 'need_approve_detail.dart';
 import 'need_detail.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
+import 'dart:async';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class NeedsView extends StatefulWidget {
   const NeedsView({

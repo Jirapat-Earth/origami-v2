@@ -1,7 +1,10 @@
+import '../../../login/origami_login.dart';
+import '../../academy.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import '../../../imports.dart';
-import '../../academy.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class YouTubePlayerWidget extends StatefulWidget {
   final String videoId;

@@ -1,9 +1,16 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import '../activity/add/activity_add.dart';
-import '../../../imports.dart';
 import 'contact_add/contact_add_view.dart';
 import 'contact_edit/contact_edit_view.dart';
+import '../login/origami_login.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'dart:async';
 
 class ContactScreen extends StatefulWidget {
   const ContactScreen({

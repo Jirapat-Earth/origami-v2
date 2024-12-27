@@ -1,12 +1,25 @@
 import 'package:http/http.dart' as http;
-import '../../../../imports.dart';
 import 'package:intl/intl.dart';
-
+import '../../login/origami_login.dart';
 import '../../project/create_project/project_add.dart';
 import '../activity.dart';
 import '../signature_page/signature_page.dart';
 import '../skoop/skoop.dart';
 import 'activity_edit_now.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'dart:async';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 
 class ActivityEditList extends StatefulWidget {
   const ActivityEditList({

@@ -1,9 +1,20 @@
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import '../activity/add/activity_add.dart';
-import '../../../imports.dart';
 import '../project/update_project/project_other_view/project_budgeting.dart';
-
+import '../login/origami_login.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:origami_v2/language/translate.dart';
+import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
+import 'dart:async';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:file_picker/file_picker.dart'; // สำหรับเลือกไฟล์
 
 class IdocEdit extends StatefulWidget {
   const IdocEdit({
